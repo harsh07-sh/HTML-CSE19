@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Salary Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      margin: 5px;
+      padding: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Employee Salary Management System</h2>
+  
+
+  <label>Employee Name:</label>
+  <input type="text" id="empName" placeholder="Enter name">
+  <br>
+
+  <label>Position:</label>
+  <input type="text" id="empPosition" placeholder="Enter position">
+  <br>
+
+  <label>Salary:</label>
+  <input type="number" id="empSalary" placeholder="Enter salary">
+  <br>
+
+  <button onclick="addEmployee()">Add Employee</button>
+  <button></button>
+
+  <table id="employeeTable">
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Salary</th>
+    </tr>
+  </table>
+
+  <script>
+    function addEmployee() {
+      let name = document.getElementById("empName").value;
+      let position = document.getElementById("empPosition").value;
+      let salary = document.getElementById("empSalary").value;
+
+      if(name === "" || position === "" || salary === "") {
+        alert("Details bhar laude!");
+        return;
+      }
+
+      let table = document.getElementById("employeeTable");
+      let row = table.insertRow(-1);
+
+      let cell1 = row.insertCell(0);
+      let cell2 = row.insertCell(1);
+      let cell3 = row.insertCell(2);
+
+      cell1.innerHTML = name;
+      cell2.innerHTML = position;
+      cell3.innerHTML = salary;
+
+      // Clear input fields
+      document.getElementById("empName").value = "";
+      document.getElementById("empPosition").value = "";
+      document.getElementById("empSalary").value = "";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid black;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+    }
+    input {
+       border: 2px solid black;
+      width: 90%;
+      padding: 10px;
+      margin: 10px;
+    }
+     button {
+      background: blue;;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+    }
+.result{
+  margin-top: 10px;
+  font-weight: bold;
+  color:aqua;
+}
+
+</style>
 </head>
 <body>
-    
+  <div>
+  <h2>Find Largest Number</h2>
+  <input type="text" id="numbers" placeholder="Enter number seperately">
+  <button onclick="findLargest()">Find Largest</button>
+  <div class="result" id="result"></div>
+</div>
+<script> 
+   function findLargest() {
+      let input = document.getElementById("numbers").value;
+      let numArray = input.split(",").map(num => parseFloat(num.trim()));
+      numArray = numArray.filter(num => !isNaN(num));
+      if (numArray.length > 0) {
+        let largest = Math.max.apply(null,numArray);
+        document.getElementById("result").innerText = "Largest number is: " + largest;
+      } else {
+        document.getElementById("result").innerText = "Please enter valid numbers!";
+      }
+    }
+</script>
 </body>
 </html>
